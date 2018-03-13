@@ -6,6 +6,11 @@ pipeline {
         }
     }
     stages {
+        stage('Pre-build') { 
+            steps {
+                sh './jenkins/scripts/pre-build.sh' 
+            }
+        }        
         stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package' 
